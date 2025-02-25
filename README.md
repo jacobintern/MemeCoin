@@ -69,6 +69,9 @@ meme-coin-api/
 │   ├── util/           # 擴充工具函式
 │── dockerfile          # Docker 映像檔設定
 │── docker-compose.yml  # Docker Compose 設定
+│── go.mod              # 依賴套件設定檔
+│── go.sum              # 依賴驗證檔
+│── makefile            # 自動化指令
 ```
 
 - 以上是簡化 DDD 架構來簡單處理 meme coin API 的程式架構
