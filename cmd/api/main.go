@@ -8,9 +8,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/jacobintern/meme_coin/cmd/injection"
 	"github.com/jacobintern/meme_coin/controller"
+	"github.com/jacobintern/meme_coin/docs"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"github.com/swaggo/swag/example/basic/docs"
 	"go.uber.org/zap"
 )
 
