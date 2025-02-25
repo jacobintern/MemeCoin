@@ -16,16 +16,17 @@ func NewMemeCoinController(memeCoinService service.IMemeCoinService) *MemeCoinCo
 }
 
 // Create Meme Coin godoc
-// @Summary Initialized Meme Coin
-// @Description Initialized Meme Coin with the provided details.
-// @Tags MemeCoin
-// @Accept json
-// @Produce json
-// @Param request body command.CreateMemeCoinCommand true "Meme Coin Creation Command"
-// @Success 200 {object} controller.Res	"Successfully initialized meme coin information"
-// @Failure 400 {object} controller.Res	"Invalid request or missing required parameters"
-// @Failure 500 {object} controller.Res	"Internal server error"
-// @Router /meme_coin [post]
+//
+//	@Summary		Initialized Meme Coin
+//	@Description	Initialized Meme Coin with the provided details.
+//	@Tags			MemeCoin
+//	@Accept			json
+//	@Produce		json
+//	@Param			request	body		command.CreateMemeCoinCommand	true	"Meme Coin Creation Command"
+//	@Success		200		{object}	controller.Res					"Successfully initialized meme coin information"
+//	@Failure		400		{object}	controller.Res					"Invalid request or missing required parameters"
+//	@Failure		500		{object}	controller.Res					"Internal server error"
+//	@Router			/meme_coin [post]
 func (c *MemeCoinController) Create(ctx *gin.Context) {
 	command := command.NewCreateMemeCoinCommand()
 	if err := ctx.ShouldBindJSON(&command); err != nil {
@@ -42,16 +43,17 @@ func (c *MemeCoinController) Create(ctx *gin.Context) {
 }
 
 // Get Meme Coin godoc
-// @Summary fetched Meme Coin
-// @Description fetched Meme Coin with the provided details.
-// @Tags MemeCoin
-// @Accept json
-// @Produce json
-// @Param	id	path	string	true	"Meme Coin ID"
-// @Success 200 {object} controller.Res	"Successfully fetched meme coin information"
-// @Failure 400 {object} controller.Res	"Invalid request or missing required parameters"
-// @Failure 500 {object} controller.Res	"Internal server error"
-// @Router /meme_coin/{id} [get]
+//
+//	@Summary		fetched Meme Coin
+//	@Description	fetched Meme Coin with the provided details.
+//	@Tags			MemeCoin
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	path		string			true	"Meme Coin ID"
+//	@Success		200	{object}	controller.Res	"Successfully fetched meme coin information"
+//	@Failure		400	{object}	controller.Res	"Invalid request or missing required parameters"
+//	@Failure		500	{object}	controller.Res	"Internal server error"
+//	@Router			/meme_coin/{id} [get]
 func (c *MemeCoinController) Get(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {
@@ -69,17 +71,18 @@ func (c *MemeCoinController) Get(ctx *gin.Context) {
 }
 
 // Patch Meme Coin godoc
-// @Summary Patch Meme Coin
-// @Description Patch Meme Coin with the provided details.
-// @Tags MemeCoin
-// @Accept json
-// @Produce json
-// @Param request body command.PatchMemeCoinCommand true "Meme Coin Patch Command"
-// @Param	id	path	string	true	"Meme Coin ID"
-// @Success 200 {object} controller.Res	"Successfully patch meme coin description"
-// @Failure 400 {object} controller.Res	"Invalid request or missing required parameters"
-// @Failure 500 {object} controller.Res	"Internal server error"
-// @Router /meme_coin/{id} [patch]
+//
+//	@Summary		Patch Meme Coin
+//	@Description	Patch Meme Coin with the provided details.
+//	@Tags			MemeCoin
+//	@Accept			json
+//	@Produce		json
+//	@Param			request	body		command.PatchMemeCoinCommand	true	"Meme Coin Patch Command"
+//	@Param			id		path		string							true	"Meme Coin ID"
+//	@Success		200		{object}	controller.Res					"Successfully patch meme coin description"
+//	@Failure		400		{object}	controller.Res					"Invalid request or missing required parameters"
+//	@Failure		500		{object}	controller.Res					"Internal server error"
+//	@Router			/meme_coin/{id} [patch]
 func (c *MemeCoinController) Patch(ctx *gin.Context) {
 	command := command.NewPatchMemeCoinCommand()
 	if err := ctx.ShouldBindJSON(&command); err != nil {
@@ -103,16 +106,17 @@ func (c *MemeCoinController) Patch(ctx *gin.Context) {
 }
 
 // Delete Meme Coin godoc
-// @Summary Delete Meme Coin
-// @Description Delete Meme Coin with the provided details.
-// @Tags MemeCoin
-// @Accept json
-// @Produce json
-// @Param	id	path	string	true	"Meme Coin ID"
-// @Success 200 {object} controller.Res	"Successfully deleted meme coin"
-// @Failure 400 {object} controller.Res	"Invalid request or missing required parameters"
-// @Failure 500 {object} controller.Res	"Internal server error"
-// @Router /meme_coin/{id} [delete]
+//
+//	@Summary		Delete Meme Coin
+//	@Description	Delete Meme Coin with the provided details.
+//	@Tags			MemeCoin
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	path		string			true	"Meme Coin ID"
+//	@Success		200	{object}	controller.Res	"Successfully deleted meme coin"
+//	@Failure		400	{object}	controller.Res	"Invalid request or missing required parameters"
+//	@Failure		500	{object}	controller.Res	"Internal server error"
+//	@Router			/meme_coin/{id} [delete]
 func (c *MemeCoinController) Delete(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {
@@ -129,16 +133,17 @@ func (c *MemeCoinController) Delete(ctx *gin.Context) {
 }
 
 // Meme Coin poke godoc
-// @Summary Meme Coin Poke
-// @Description Add Meme Coin popularity with the provided details.
-// @Tags MemeCoin
-// @Accept json
-// @Produce json
-// @Param	id	path	string	true	"Meme Coin ID"
-// @Success 200 {object} controller.Res	"Successfully count add on on meme coin popularity"
-// @Failure 400 {object} controller.Res	"Invalid request or missing required parameters"
-// @Failure 500 {object} controller.Res	"Internal server error"
-// @Router /meme_coin/{id}/poke [post]
+//
+//	@Summary		Meme Coin Poke
+//	@Description	Add Meme Coin popularity with the provided details.
+//	@Tags			MemeCoin
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	path		string			true	"Meme Coin ID"
+//	@Success		200	{object}	controller.Res	"Successfully count add on on meme coin popularity"
+//	@Failure		400	{object}	controller.Res	"Invalid request or missing required parameters"
+//	@Failure		500	{object}	controller.Res	"Internal server error"
+//	@Router			/meme_coin/{id}/poke [post]
 func (c *MemeCoinController) Poke(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {
