@@ -1,0 +1,20 @@
+server:
+  port: ""
+log:
+  level: ""
+http:
+  timeoutsec: ""
+database:
+  mysql:
+    database: ""
+    user: ""
+    password: ""
+    host: ""
+    port: ""
+cors:
+  allow:
+    credentials: ""
+    methods: ""
+    headers: ""
+    allOrigins: ""
+  maxAge: ""

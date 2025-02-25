@@ -1,0 +1,177 @@
+definitions:
+  controller.Res:
+    properties:
+      code:
+        type: integer
+      data: {}
+      msg:
+        type: string
+    type: object
+  github_com_jacobintern_meme_coin_controller_command.CreateMemeCoinCommand:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    required:
+    - name
+    type: object
+  github_com_jacobintern_meme_coin_controller_command.PatchMemeCoinCommand:
+    properties:
+      description:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /meme_coin:
+    post:
+      consumes:
+      - application/json
+      description: Initialized Meme Coin with the provided details.
+      parameters:
+      - description: Meme Coin Creation Command
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_jacobintern_meme_coin_controller_command.CreateMemeCoinCommand'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully initialized meme coin information
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "400":
+          description: Invalid request or missing required parameters
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/controller.Res'
+      summary: Initialized Meme Coin
+      tags:
+      - MemeCoin
+  /meme_coin/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Meme Coin with the provided details.
+      parameters:
+      - description: Meme Coin ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully deleted meme coin
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "400":
+          description: Invalid request or missing required parameters
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/controller.Res'
+      summary: Delete Meme Coin
+      tags:
+      - MemeCoin
+    get:
+      consumes:
+      - application/json
+      description: fetched Meme Coin with the provided details.
+      parameters:
+      - description: Meme Coin ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully fetched meme coin information
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "400":
+          description: Invalid request or missing required parameters
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/controller.Res'
+      summary: fetched Meme Coin
+      tags:
+      - MemeCoin
+    patch:
+      consumes:
+      - application/json
+      description: Patch Meme Coin with the provided details.
+      parameters:
+      - description: Meme Coin Patch Command
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_jacobintern_meme_coin_controller_command.PatchMemeCoinCommand'
+      - description: Meme Coin ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully patch meme coin description
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "400":
+          description: Invalid request or missing required parameters
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/controller.Res'
+      summary: Patch Meme Coin
+      tags:
+      - MemeCoin
+  /meme_coin/{id}/poke:
+    post:
+      consumes:
+      - application/json
+      description: Add Meme Coin popularity with the provided details.
+      parameters:
+      - description: Meme Coin ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully count add on on meme coin popularity
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "400":
+          description: Invalid request or missing required parameters
+          schema:
+            $ref: '#/definitions/controller.Res'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/controller.Res'
+      summary: Meme Coin Poke
+      tags:
+      - MemeCoin
+swagger: "2.0"

@@ -1,0 +1,48 @@
+run:
+  go: "1.22.5"
+  tests: false # include not test files
+
+linters:
+  enable:
+    - bodyclose
+    - errcheck
+    - gocritic
+    - gofmt
+    - goprintffuncname
+    - gosimple
+    - govet
+    - lll
+    - ineffassign
+    - misspell
+    - nakedret
+    - rowserrcheck
+    - staticcheck
+    - typecheck
+    - unconvert
+    - unparam
+    - unused
+    - whitespace
+    - exportloopref
+    - dupl
+    - goconst
+    - prealloc
+  disable-all: true
+
+linters-settings:
+  gocritic:
+    disabled-checks:
+      - ifElseChain
+  lll:
+    line-length: 150
+    tab-width: 4
+  funlen:
+    lines: 100
+    statements: 50
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  exclude-rules:
+    - linters:
+        - lll
+      source: "^// "

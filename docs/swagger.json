@@ -1,0 +1,271 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/meme_coin": {
+            "post": {
+                "description": "Initialized Meme Coin with the provided details.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "MemeCoin"
+                ],
+                "summary": "Initialized Meme Coin",
+                "parameters": [
+                    {
+                        "description": "Meme Coin Creation Command",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github_com_jacobintern_meme_coin_controller_command.CreateMemeCoinCommand"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully initialized meme coin information",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request or missing required parameters",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    }
+                }
+            }
+        },
+        "/meme_coin/{id}": {
+            "get": {
+                "description": "fetched Meme Coin with the provided details.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "MemeCoin"
+                ],
+                "summary": "fetched Meme Coin",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Meme Coin ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully fetched meme coin information",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request or missing required parameters",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Meme Coin with the provided details.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "MemeCoin"
+                ],
+                "summary": "Delete Meme Coin",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Meme Coin ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully deleted meme coin",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request or missing required parameters",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "description": "Patch Meme Coin with the provided details.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "MemeCoin"
+                ],
+                "summary": "Patch Meme Coin",
+                "parameters": [
+                    {
+                        "description": "Meme Coin Patch Command",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github_com_jacobintern_meme_coin_controller_command.PatchMemeCoinCommand"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Meme Coin ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully patch meme coin description",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request or missing required parameters",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    }
+                }
+            }
+        },
+        "/meme_coin/{id}/poke": {
+            "post": {
+                "description": "Add Meme Coin popularity with the provided details.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "MemeCoin"
+                ],
+                "summary": "Meme Coin Poke",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Meme Coin ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully count add on on meme coin popularity",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request or missing required parameters",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Res"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "controller.Res": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_jacobintern_meme_coin_controller_command.CreateMemeCoinCommand": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_jacobintern_meme_coin_controller_command.PatchMemeCoinCommand": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
