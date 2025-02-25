@@ -12,6 +12,7 @@ type CustomError struct {
 	message string
 }
 
+// 可以根據 github 的 repository Id 或是 gitlab 的專案 ID 來設定
 const repoCode = "77777"
 
 func NewCustomError(code string, status Status, message string) CustomError {
