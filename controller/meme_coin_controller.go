@@ -1,6 +1,8 @@
 package controller
 
 import (
+	"time"
+
 	"github.com/gin-gonic/gin"
 	"github.com/jacobintern/meme_coin/controller/command"
 	"github.com/jacobintern/meme_coin/pkg/errors"
@@ -61,6 +63,7 @@ func (c *MemeCoinController) Get(ctx *gin.Context) {
 		return
 	}
 
+	time.Sleep(7 * time.Second)
 	resp, err := c.memeCoinService.Get(id)
 	if err != nil {
 		Failed(ctx, err)

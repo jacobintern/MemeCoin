@@ -9,6 +9,7 @@ import (
 	"github.com/jacobintern/meme_coin/cmd/injection"
 	"github.com/jacobintern/meme_coin/controller"
 	"github.com/jacobintern/meme_coin/docs"
+	"github.com/jacobintern/meme_coin/pkg/middleware"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"go.uber.org/zap"
@@ -48,19 +49,19 @@ func main() {
 	logger.Info("the shop backend service successfully start up")
 }
 
-func registerRoutes(engine *gin.Engine, i *injection.Injection) {
-	engine.Use(cors.Default())
+func registerRoutes(r *gin.Engine, i *injection.Injection) {
+	r.Use(cors.Default())
 
 	// swagger
-	engine.GET("/swagger/*any", swaggerRouteHandler())
+	r.GET("/swagger/*any", swaggerRouteHandler())
 
 	// controller
 	memeCoinController := controller.NewMemeCoinController(i.MemeCoinService)
 
-	api := engine.Group("/api")
+	api := r.Group("/api")
 
 	// api
-	memeCoin := api.Group("/meme_coin")
+	memeCoin := api.Group("/meme_coin", middleware.TimeoutMiddleware(time.Duration(i.Config.Http.TimeoutSec)*time.Second))
 	{
 		memeCoin.POST("", memeCoinController.Create)
 		memeCoin.GET("/:id", memeCoinController.Get)
@@ -76,7 +77,7 @@ func swaggerRouteHandler() gin.HandlerFunc {
 	docs.SwaggerInfo.Title = "Meme Coin API"
 	docs.SwaggerInfo.Version = "1.0"
 	docs.SwaggerInfo.BasePath = "/api"
-	docs.SwaggerInfo.Schemes = []string{"https", "http"}
+	docs.SwaggerInfo.Schemes = []string{"http", "https"}
 
 	return ginSwagger.WrapHandler(swaggerFiles.Handler)
 }

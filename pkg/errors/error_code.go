@@ -9,6 +9,9 @@ var (
 	UnmarshalConfigFatal = NewCustomError("500005", StatusInternalServerError, "unmarshal config struct failed.")
 	ValidConfigFatal     = NewCustomError("500006", StatusInternalServerError, "valid config struct failed.")
 
+	// 504
+	GatewayTimeout = NewCustomError("504001", StatusGatewayTimeout, "request time out.")
+
 	// 400 bad request
 	InvalidArgument = NewCustomError("400001", StatusBadRequest, "invalid arguments.")
 	InvalidParams   = NewCustomError("400002", StatusBadRequest, "parse parameter failed.")

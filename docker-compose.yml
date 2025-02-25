@@ -28,7 +28,7 @@ services:
     environment:
       - SERVER_PORT=8080
       - LOG_LEVEL=ERROR
-      - HTTP_TIMEOUTSEC=10
+      - HTTP_TIMEOUTSEC=3
       - DATABASE_MYSQL_DATABASE=mydatabase
       - DATABASE_MYSQL_USER=user
       - DATABASE_MYSQL_PASSWORD=passw0rd

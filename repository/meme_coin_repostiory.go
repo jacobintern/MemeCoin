@@ -19,7 +19,7 @@ type memeCoinRepository struct {
 	mysql *mysqlx.Client
 }
 
-func NewMemeCoinReposiotry(client *mysqlx.Client) IMemeCoinRepository {
+func NewMemeCoinRepository(client *mysqlx.Client) IMemeCoinRepository {
 	return &memeCoinRepository{
 		mysql: client,
 	}

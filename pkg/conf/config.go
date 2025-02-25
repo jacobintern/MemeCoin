@@ -13,10 +13,10 @@ type Config struct {
 		Port string `validate:"required"`
 	}
 	Log struct {
-		Level string `validate:"required"`
+		Level string
 	}
 	Http struct {
-		TimeoutSec int `validate:"required"`
+		TimeoutSec int
 	}
 	Database struct {
 		MySql struct {

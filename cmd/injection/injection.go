@@ -22,7 +22,7 @@ func New() *Injection {
 	logger := initLogger(conf)
 
 	// repository
-	memeCoinRepo := repository.NewMemeCoinReposiotry(mysql)
+	memeCoinRepo := repository.NewMemeCoinRepository(mysql)
 
 	// service
 	memeCoinService := service.NewMemeCoinService(memeCoinRepo)

@@ -8,4 +8,6 @@ CREATE TABLE IF NOT EXISTS meme_coins (
     popularity_score INT UNSIGNED NOT NULL DEFAULT 0
 );
 
+-- 需要的話可以加入 index
+
 COMMIT;
