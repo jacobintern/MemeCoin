@@ -90,14 +90,17 @@ meme-coin-api/
     # log level
     LOG_LEVEL=ERROR
 
-    HTTP_TIMEOUTSEC=10
+    # middleware time out setting
+    HTTP_TIMEOUTSEC=3
 
+    # 修改連線可以使用外部，不使用 mysql 容器
     DATABASE_MYSQL_DATABASE=mydatabase
     DATABASE_MYSQL_USER=user
     DATABASE_MYSQL_PASSWORD=passw0rd
     DATABASE_MYSQL_HOST=localhost
     DATABASE_MYSQL_PORT=3306
 
+    # API 基礎設定
     CORS_ALLOW_ALLORIGINS=true
     CORS_ALLOW_CREDENTIALS=false
     CORS_ALLOW_METHODS=GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS
